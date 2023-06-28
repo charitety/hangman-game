@@ -1,13 +1,13 @@
 #Importing Random-Word package 
-# From https://pypi.org/project/Random-Word/
-# from random_word import RandomWords
+#From https://pypi.org/project/Random-Word/
+from random_word import RandomWords
 
-# r =RandomWords()
+r =RandomWords()
 
-# #Return a single random word
-# r.get_random_word()
-# #computer randomly generates a word
-# hangmanWord = r.get_random_word()
+#Return a single random word
+r.get_random_word()
+#computer randomly generates a word
+hangmanWord = r.get_random_word()
 
 #player choses letter
 

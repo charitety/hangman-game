@@ -1,13 +1,19 @@
+from colorama import Fore, Back, Style
+import random
+
 def hangmanGame():
     def hangman7():
-        print("__________________")
-        print("--------")
-        print("|      |")
-        print("|")
-        print("|")
-        print("|")
-        print("|")
-        print("_")
+        picture2 = """
+            __________________
+            --------
+            |      |
+            |
+            |
+            |
+            |
+            _
+            """
+        print(picture2)
 
     def hangman6():
         print("__________________")
@@ -75,8 +81,109 @@ def hangmanGame():
         print("|     / \\")
         print("|")
         print("_")
+
+    def draw_picture():
+        picture = """
+                                                .''.       
+       .''.      .        *''*    :_\/_:     . 
+      :_\/_:   _\(/_  .:.*_\/_*   : /\ :  .'.:.'.
+  .''.: /\ :   ./)\   ':'* /\ * :  '..'.  -=:o:=-
+ :_\/_:'.:::.    ' *''*    * '.\'/.' _\(/_'.':'.'
+ : /\ : :::::     *_\/_*     -= o =-  /)\    '  *
+  '..'  ':::'     * /\ *     .'/.\'.   '
+      *            *..*         :
+        *
+        *
+             """
+        print(picture)
+
                                                 
-    hangmanWord = "whiteboard"
+    hangmanWordList = [
+    "apple",
+    "banana",
+    "orange",
+    "mango",
+    "strawberry",
+    "watermelon",
+    "pineapple",
+    "grapefruit",
+    "kiwi",
+    "peach",
+    "pear",
+    "plum",
+    "blueberry",
+    "raspberry",
+    "blackberry",
+    "avocado",
+    "cherry",
+    "coconut",
+    "lemon",
+    "lime",
+    "melon",
+    "papaya",
+    "fig",
+    "apricot",
+    "guava",
+    "passionfruit",
+    "cranberry",
+    "pomegranate",
+    "dragonfruit",
+    "starfruit",
+    "lychee",
+    "persimmon",
+    "quince",
+    "nectarine",
+    "grape",
+    "kiwifruit",
+    "tangerine",
+    "tomato",
+    "cantaloupe",
+    "honeydew",
+    "boysenberry",
+    "loganberry",
+    "mulberry",
+    "olive",
+    "date",
+    "elderberry",
+    "pawpaw",
+    "plantain",
+    "rhubarb",
+    "elephant",
+    "giraffe",
+    "lion",
+    "tiger",
+    "zebra",
+    "cheetah",
+    "rhinoceros",
+    "hippopotamus",
+    "kangaroo",
+    "koala",
+    "panda",
+    "gorilla",
+    "monkey",
+    "crocodile",
+    "alligator",
+    "dolphin",
+    "whale",
+    "shark",
+    "octopus",
+    "starfish",
+    "seahorse",
+    "butterfly",
+    "beetle",
+    "ladybug",
+    "dragonfly",
+    "spider",
+    "snail",
+    "hedgehog",
+    "owl",
+    "eagle",
+    "peacock",
+    "parrot",
+    "flamingo"
+]  
+    hangmanWord = random.choice(hangmanWordList)                                               
+    hangmanWord = "flower"
     linesOfChar = ""
     for char in hangmanWord:
         linesOfChar += "_ "
@@ -112,11 +219,11 @@ def hangmanGame():
             print("You already guessed that letter!")
             rightHangman(triesLeft)
         elif guessedLetter in hangmanWord:
-            print("Good guess!")
+            print(Fore.YELLOW, Style.BRIGHT +"Good guess!")
             rightHangman(triesLeft)
             guessedLetters.append(guessedLetter)
         else:
-            print("Wrong guess!")
+            print(Fore.LIGHTRED_EX+"Wrong guess!")
             triesLeft -= 1
             rightHangman(triesLeft)
         showWord = ""
@@ -129,17 +236,16 @@ def hangmanGame():
         print(showWord)
 
         if all(char in guessedLetters for char in hangmanWord):
-            print("Congratulations! You won!")
+            print(Fore.GREEN, Style.BRIGHT +"Congratulations! You won!")
+            draw_picture()
+            print(Style.RESET_ALL)
             break
 
         print("Tries left:", triesLeft)
 
     else:
         hangman0()
-        print("You lost! The word was:", hangmanWord)
-    if triesLeft == 1:
-        hangman1()
-    if triesLeft == 6:
-        hangman6()
+        print(Fore.RED, Style.BRIGHT +"You lost!")
+        print(Style.RESET_ALL+"The word was:", hangmanWord)
 
 hangmanGame()
