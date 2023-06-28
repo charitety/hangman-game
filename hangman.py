@@ -152,7 +152,8 @@ while triesLeft <= 7:
 
 #Stretch goals:
 #Display a message if the input is not alphabetic
-#Display a message if the user enters a letter twice
+#Display a message if the user enters a letter twice "PARTIALLY ACHIEVED"
+#Display a message if the user enters a wrong letter twice
 #Add background colors to terminal print
 
 

@@ -75,6 +75,7 @@ def hangmanGame():
         print("|     / \\")
         print("|")
         print("_")
+                                                
     hangmanWord = "whiteboard"
     linesOfChar = ""
     for char in hangmanWord:
@@ -86,22 +87,38 @@ def hangmanGame():
     print(f"Let's play Hangman! Guess the word:{linesOfChar}")
     print(f"Tries left: {triesLeft}")
     hangman7()
-
-
-
-
+    def rightHangman(triesLeft):
+        if triesLeft == 0:
+            hangman0()
+        if triesLeft == 1:
+            hangman1()       
+        if triesLeft == 2:
+            hangman2()
+        if triesLeft == 3:
+            hangman3()
+        if triesLeft == 4:
+            hangman4()
+        if triesLeft == 5:
+            hangman5()
+        if triesLeft == 6:
+            hangman6()
+        if triesLeft == 7:
+            hangman7()  
     while triesLeft > 0:
         #Take an input letter and convert it to lowercase
         guessedLetter = input('Guess a letter: ').lower()
-
+  
         if guessedLetter in guessedLetters:
             print("You already guessed that letter!")
+            rightHangman(triesLeft)
         elif guessedLetter in hangmanWord:
             print("Good guess!")
+            rightHangman(triesLeft)
             guessedLetters.append(guessedLetter)
         else:
             print("Wrong guess!")
             triesLeft -= 1
+            rightHangman(triesLeft)
         showWord = ""
         for char in hangmanWord:
             if char in guessedLetters:
@@ -116,10 +133,13 @@ def hangmanGame():
             break
 
         print("Tries left:", triesLeft)
-        
+
     else:
         hangman0()
         print("You lost! The word was:", hangmanWord)
-
+    if triesLeft == 1:
+        hangman1()
+    if triesLeft == 6:
+        hangman6()
 
 hangmanGame()
