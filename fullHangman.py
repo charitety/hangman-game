@@ -95,7 +95,7 @@ def hangmanGame():
         *
         *
              """
-        print(picture)
+        print(Fore.LIGHTRED_EX, Style.BRIGHT+picture)
 
                                                 
     hangmanWordList = [
@@ -183,7 +183,7 @@ def hangmanGame():
     "flamingo"
 ]  
     hangmanWord = random.choice(hangmanWordList)                                               
-    hangmanWord = "flower"
+    # hangmanWord = "flower"
     linesOfChar = ""
     for char in hangmanWord:
         linesOfChar += "_ "
@@ -249,3 +249,11 @@ def hangmanGame():
         print(Style.RESET_ALL+"The word was:", hangmanWord)
 
 hangmanGame()
+
+#Potential strech goals
+#Display a message if the input is not alphabetic
+#Display a message if the user enters a letter twice "PARTIALLY ACHIEVED"
+#Display a message if the user enters a wrong letter twice
+
+
+
